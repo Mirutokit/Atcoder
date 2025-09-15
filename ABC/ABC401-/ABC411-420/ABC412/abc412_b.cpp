@@ -16,16 +16,14 @@ template <typename T> inline T ceil(T a,T b) {return (a+(b-1))/b;}
 template <typename T> inline T floor(T a,T b) {return a/b;}
 
 int main() {
-    long long T;
-    cin >> T;
-    while (T--) {
-        long long nA, nB, nC;
-        cin >> nA >> nB >> nC;
-
-        long long total = nA + nB + nC;
-        long long ans = min({nA, nC, total / 3});
-
-        cout << ans << endl;
+    string S,T;
+    cin>>S>>T;
+    bool flag=true;
+    for(int i=1;i<S.length();i++){
+      if(isupper(S[i])){
+         if(T.find(S[i-1])==string::npos) flag=false;
+      }
     }
+    cout<<Yes(flag)<<endl;
     return 0;
 }

@@ -16,16 +16,21 @@ template <typename T> inline T ceil(T a,T b) {return (a+(b-1))/b;}
 template <typename T> inline T floor(T a,T b) {return a/b;}
 
 int main() {
-    long long T;
-    cin >> T;
-    while (T--) {
-        long long nA, nB, nC;
-        cin >> nA >> nB >> nC;
-
-        long long total = nA + nB + nC;
-        long long ans = min({nA, nC, total / 3});
-
-        cout << ans << endl;
+    int N;
+    cin>>N;
+    vector<int> D(N+1);
+    for(int i=1;i<=N-1;i++){
+        cin>>D[i];
+    }
+    for(int i=1;i<=N-1;i++){
+        for(int j=i+1;j<=N;j++){
+            int sum=0;
+            for(int k=i;k<j;k++){
+               sum+=D[k];
+            }
+            cout<<sum<<" ";
+        }
+        cout<<endl;
     }
     return 0;
 }

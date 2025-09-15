@@ -16,16 +16,20 @@ template <typename T> inline T ceil(T a,T b) {return (a+(b-1))/b;}
 template <typename T> inline T floor(T a,T b) {return a/b;}
 
 int main() {
-    long long T;
-    cin >> T;
-    while (T--) {
-        long long nA, nB, nC;
-        cin >> nA >> nB >> nC;
-
-        long long total = nA + nB + nC;
-        long long ans = min({nA, nC, total / 3});
-
-        cout << ans << endl;
+    ll X;
+    int C;
+    cin>>X>>C;
+    int m=X/1000;
+    bool flag=false;
+    for(int i=0;i<m;i++){
+        if(i*1000+(i*C)>X){
+            cout<<(i-1)*1000<<endl;
+            flag=true;
+            break;
+        }
     }
+
+    if(!flag) cout<<0<<endl;
+    
     return 0;
 }

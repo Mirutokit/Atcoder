@@ -15,17 +15,36 @@ template <typename T> inline T lcm(T a, T b) {return (a * b) / gcd(a, b);}
 template <typename T> inline T ceil(T a,T b) {return (a+(b-1))/b;}
 template <typename T> inline T floor(T a,T b) {return a/b;}
 
+
+
+
 int main() {
-    long long T;
-    cin >> T;
-    while (T--) {
-        long long nA, nB, nC;
-        cin >> nA >> nB >> nC;
-
-        long long total = nA + nB + nC;
-        long long ans = min({nA, nC, total / 3});
-
-        cout << ans << endl;
+    int N,Q;
+    cin>>N>>Q;
+    vector<int> X(Q);
+    vector<int> Bcnt(N,0);
+    vector<int> ans;
+    for(int i=0;i<Q;i++){
+        int X;
+        cin>>X;
+        if(X>=1){
+            Bcnt[X-1]++;
+            ans.push_back(X);
+        }else{
+            int index=0;
+            int min=*min_element(begin(Bcnt),end(Bcnt));
+            for(int j=0;j<N;j++){
+                if(Bcnt[j]==min){
+                     index=j;
+                     break;
+                }
+            }
+            Bcnt[index]++;
+            ans.push_back(index+1);
+        }
+    }
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
     }
     return 0;
 }

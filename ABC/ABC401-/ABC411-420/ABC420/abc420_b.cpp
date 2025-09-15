@@ -48,8 +48,6 @@ int main() {
             rep(k,index1.size()){
                 score[index1[k]]++;
             }
-
-            
         }
     }
     int max=*max_element(begin(score),end(score));

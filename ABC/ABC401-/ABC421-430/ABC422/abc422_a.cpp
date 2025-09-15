@@ -16,8 +16,15 @@ template <typename T> inline T ceil(T a,T b) {return (a+(b-1))/b;}
 template <typename T> inline T floor(T a,T b) {return a/b;}
 
 int main() {
-    int N;
-    cin >>N;
+    string S;
+    cin >>S;
+    int i=S[0]-'0';
+    int j=S[2]-'0';
+    if(j<8){
+        cout<<i<<"-"<<j+1<<endl;
+    }else if(i<8&&j==8){
+        cout<<i+1<<"-"<<1<<endl;
+    }
     
     return 0;
 }
