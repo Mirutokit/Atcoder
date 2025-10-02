@@ -15,33 +15,28 @@ template <typename T> inline T lcm(T a, T b) {return (a * b) / gcd(a, b);}
 template <typename T> inline T ceil(T a,T b) {return (a+(b-1))/b;}
 template <typename T> inline T floor(T a,T b) {return a/b;}
 
-ll Nto10(string S,ll N){
-   reverse(S.begin(), S.end());
 
-    // 答えを求める
-    long long ans = 0;
-    long long powN = 1;  // N^i を管理する変数
-    for(auto c : S) {
-        int s = c - '0';  // 今見ている桁の数字
-        long long add = s * powN;  // その桁に注目したときの値
-        ans += add;
-        powN *= N;
-    }
-    return ans;
-}
 
-ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
-    ll ans=0;
-    for(char x:s){
-        ans *= k;
-        ans += x - '0';
-    }
-    return ans;
-}
 
 int main() {
-    int N;
-    cin >>N;
-    
+    int X,Y;
+    string S;
+    cin>>S;
+    int index=0;
+    rep(i,S.size()){
+        if(S[i]=='.'){
+            index=i;
+            break;
+        }
+    }
+    X=stoi(S.substr(0,index));
+    Y=stoi(S.substr(index+1,S.size()));
+    if(Y>=0&&Y<=2){
+        cout<<X<<"-"<<endl;
+    }else if(3<=Y&&Y<=6){
+        cout<<X<<endl;
+    }else if(7<=Y&&Y<=9){
+        cout<<X<<"+"<<endl;
+    }
     return 0;
 }

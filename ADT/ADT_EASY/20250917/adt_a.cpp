@@ -40,8 +40,9 @@ ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
 }
 
 int main() {
-    int N;
-    cin >>N;
-    
+    string S,T;
+    cin >>S>>T;
+    string A=S+" san";
+    cout<<A<<endl;
     return 0;
 }

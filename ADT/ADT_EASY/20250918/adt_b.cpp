@@ -40,8 +40,14 @@ ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
 }
 
 int main() {
-    int N;
-    cin >>N;
-    
+    int cnt=0;
+    for(int i=1;i<=12;i++){
+        string S;
+        cin>>S;
+        if(S.size()==i){
+            cnt++;
+        }
+    }
+    cout<<cnt<<endl;
     return 0;
 }
