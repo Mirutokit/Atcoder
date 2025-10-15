@@ -30,18 +30,51 @@ ll Nto10(string S,ll N){
     return ans;
 }
 
-ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
-    ll ans=0;
-    for(char x:s){
-        ans *= k;
-        ans += x - '0';
-    }
-    return ans;
-}
 
 int main() {
-    int N;
-    cin >>N;
+    int N,Q;
+    cin>>N>>Q;
+    ll cnt=0;
+    vector<ll> box(N,1);
+    vector<ll> bird(N);
+    vector<bool> check(N,false);
+    rep(i,N) bird[i]=i;
+    while(Q--){
+        int type;
+        cin>>type;
+        if(type==1){
+             ll P,H;
+             
+             cin>>P>>H;
+            box[bird[P-1]]--;
+            ll origin =bird[P-1];
+             bird[P-1]=H-1;
+             box[H-1]++;
+             
+             
+             if(check[H-1]==false&&box[H-1]>1){
+                cnt++;
+                check[H-1]=true;
+             }
+             else if(check[H-1]==true&&box[H-1]<=1){
+                cnt--;
+                check[H-1]=false;
+             }
+
+             if(check[origin]==false&&box[origin]>1){
+                cnt++;
+                check[origin]=true;
+             }
+             else if(check[origin]==true&&box[origin]<=1){
+                cnt--;
+                check[origin]=false;
+             }
+
+
+        }else{
+           cout<<cnt<<endl;
+        }
+    }
     
     return 0;
 }

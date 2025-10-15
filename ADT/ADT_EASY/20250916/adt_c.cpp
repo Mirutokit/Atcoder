@@ -30,18 +30,14 @@ ll Nto10(string S,ll N){
     return ans;
 }
 
-ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
-    ll ans=0;
-    for(char x:s){
-        ans *= k;
-        ans += x - '0';
-    }
-    return ans;
-}
 
 int main() {
-    int N;
-    cin >>N;
-    
+    ll K;
+    ll A,B;
+    string S,T;
+    cin>>K>>S>>T;
+    A=Nto10(S,K);
+    B=Nto10(T,K);
+    cout<<A*B<<endl;
     return 0;
 }

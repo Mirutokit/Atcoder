@@ -40,8 +40,29 @@ ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
 }
 
 int main() {
-    int N;
-    cin >>N;
+    long long N, M;
+    cin>>N>>M;
+    string S,T;
+    cin>>S>>T;
+    bool flag1=false;
+    bool flag2=false;
+    if(T.substr(0,N)==S){
+        flag1=true;
+    }
+    if(T.substr(M-N,M)==S){
+        flag2=true;
+    }
+
+    if(flag1&&flag2){
+        cout<<0<<endl;
+    }else if(flag1&&!flag2){
+        cout<<1<<endl;
+    }else if(!flag1&&flag2){
+        cout<<2<<endl;
+    }else if(!flag1&&!flag2){
+        cout<<3<<endl;
+    }
+
     
     return 0;
 }

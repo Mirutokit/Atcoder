@@ -41,7 +41,30 @@ ll f(string s,ll k){ // K 進法表記の S を、10 進法表記で表す関数
 
 int main() {
     int N;
-    cin >>N;
-    
+    cin>>N;
+    vector<int> p(N);
+    rep(i,N){
+        cin>>p[i];
+    }
+    vector<int> rank(N,-1);
+    int r=1;
+    while(r<=N){
+        int max=-2;
+        rep(i,N){
+            if(rank[i]!=-1) continue;
+            if(max<p[i])max=p[i];
+        }
+        int k=0;
+        rep(i,N){
+            if(p[i]==max){
+                rank[i]=r;
+                k++;
+            }
+        }
+        r+=k;
+    }
+    rep(i,N){
+        cout<<rank[i]<<endl;
+    }
     return 0;
 }
